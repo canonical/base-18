@@ -1,0 +1,6 @@
+#!/bin/sh
+set -eux
+
+systemctl mask motd-news.service
+systemctl mask motd-news.timer
+systemctl mask motd.service
