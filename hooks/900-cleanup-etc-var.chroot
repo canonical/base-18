@@ -28,3 +28,7 @@ rm -f /etc/mke2fs.conf
 
 # FIXME: undo all symlinks to /etc/alternatives and replace with their real
 # counterparts.
+
+
+# needs https://bugs.launchpad.net/ubuntu/+source/glibc/+bug/1736744
+mv /etc/bindresvport.blacklist /usr/share/libc6-bin/
