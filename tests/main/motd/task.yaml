@@ -1,0 +1,5 @@
+summary: Ensure that dynamic motd update service/timer is disabled
+execute: |
+    systemctl list-unit-files | MATCH "motd-news.service +masked"
+    systemctl list-unit-files | MATCH "motd-news.timer +masked"
+    systemctl list-unit-files | MATCH "motd.service +masked"
