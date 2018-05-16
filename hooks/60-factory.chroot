@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -e
+
+mkdir -p /usr/share/factory/etc
+
+for p in passwd group shadow gshadow nsswitch.conf pam.d sudoers login.defs; do
+    cp -a /etc/$p /usr/share/factory/etc
+done
+
+
+mkdir -p /usr/share/factory/etc/security
+cp -a /etc/security/limits.conf /usr/share/factory/etc/security/

@@ -1,0 +1,25 @@
+#!/bin/sh
+
+set -e
+
+cat > /usr/lib/tmpfiles.d/00-ubuntu-core.conf <<EOF
+# Type Path                Mode UID  GID   Age  Argument
+d      /snap               0755 root root  -    -
+d      /var/snap           0755 root root  -    -
+d      /var/lib/snapd      0755 root root  -    -
+
+C      /etc/passwd         -    -    -     -    -
+C      /etc/group          -    -    -     -    -
+C      /etc/shadow         -    -    -     -    -
+C      /etc/gshadow        -    -    -     -    -
+C      /etc/nsswitch.conf  -    -    -     -    -
+C      /etc/pam.d          -    -    -     -    -
+C      /etc/login.defs     -    -    -     -    -
+C      /etc/security       -    -    -     -    -
+C      /etc/sudoers        -    -    -     -    -
+
+L      /etc/resolv.conf    -    -    -     -    ../run/systemd/resolve/stub-resolv.conf
+
+d     /var/tmp             1777 root root  -
+d     /var/lib/dbus        0755 root root  -
+EOF
